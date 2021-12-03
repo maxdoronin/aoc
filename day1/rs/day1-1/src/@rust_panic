@@ -1,0 +1,39 @@
+; id = {0x000003c4}, range = [0x0000000000027350-0x0000000000027432), name="rust_panic"
+; Source location: /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/std/src/panicking.rs:669
+55555557B350: 48 81 EC A8 00 00 00       subq   $0xa8, %rsp
+55555557B357: 48 89 7C 24 08             movq   %rdi, 0x8(%rsp)
+55555557B35C: 48 89 74 24 10             movq   %rsi, 0x10(%rsp)
+55555557B361: 48 8D 7C 24 08             leaq   0x8(%rsp), %rdi
+55555557B366: FF 15 84 F6 02 00          callq  *0x2f684(%rip)
+55555557B36C: 89 44 24 04                movl   %eax, 0x4(%rsp)
+55555557B370: 48 8D 44 24 04             leaq   0x4(%rsp), %rax
+55555557B375: 48 89 44 24 38             movq   %rax, 0x38(%rsp)
+55555557B37A: 48 8D 05 1F BA 01 00       leaq   0x1ba1f(%rip), %rax  ; fmt at num.rs:279
+55555557B381: 48 89 44 24 40             movq   %rax, 0x40(%rsp)
+55555557B386: 48 8D 05 9B DC 02 00       leaq   0x2dc9b(%rip), %rax
+55555557B38D: 48 89 44 24 78             movq   %rax, 0x78(%rsp)
+55555557B392: 48 C7 84 24 80 00 00 00 >  movq   $0x1, 0x80(%rsp)
+55555557B39E: 48 C7 84 24 88 00 00 00 >  movq   $0x0, 0x88(%rsp)
+55555557B3AA: 48 8D 44 24 38             leaq   0x38(%rsp), %rax
+55555557B3AF: 48 89 84 24 98 00 00 00    movq   %rax, 0x98(%rsp)
+55555557B3B7: 48 C7 84 24 A0 00 00 00 >  movq   $0x1, 0xa0(%rsp)
+55555557B3C3: 48 8D 44 24 78             leaq   0x78(%rsp), %rax
+55555557B3C8: 48 89 44 24 28             movq   %rax, 0x28(%rsp)
+55555557B3CD: 48 8D 05 0C 88 01 00       leaq   0x1880c(%rip), %rax  ; fmt at mod.rs:502
+55555557B3D4: 48 89 44 24 30             movq   %rax, 0x30(%rsp)
+55555557B3D9: 48 8D 05 A8 D9 02 00       leaq   0x2d9a8(%rip), %rax
+55555557B3E0: 48 89 44 24 48             movq   %rax, 0x48(%rsp)
+55555557B3E5: 48 C7 44 24 50 02 00 00 >  movq   $0x2, 0x50(%rsp)
+55555557B3EE: 48 C7 44 24 58 00 00 00 >  movq   $0x0, 0x58(%rsp)
+55555557B3F7: 48 8D 44 24 28             leaq   0x28(%rsp), %rax
+55555557B3FC: 48 89 44 24 68             movq   %rax, 0x68(%rsp)
+55555557B401: 48 C7 44 24 70 01 00 00 >  movq   $0x1, 0x70(%rsp)
+55555557B40A: 48 89 E7                   movq   %rsp, %rdi
+55555557B40D: 48 8D 74 24 48             leaq   0x48(%rsp), %rsi
+55555557B412: E8 99 C0 FF FF             callq  0x5555555774b0  ; write_fmt<std::sys::unix::stdio::Stderr> at mod.rs:1646
+55555557B417: 48 89 54 24 20             movq   %rdx, 0x20(%rsp)
+55555557B41C: 48 89 44 24 18             movq   %rax, 0x18(%rsp)
+55555557B421: 48 8D 7C 24 18             leaq   0x18(%rsp), %rdi
+55555557B426: E8 E5 AF FE FF             callq  0x555555566410  ; drop_in_place<core::result::Result<(), std::io::error::Error>> at mod.rs:188
+55555557B42B: E8 50 27 00 00             callq  0x55555557db80  ; abort_internal at mod.rs:258
+55555557B430: 0F 0B                      ud2    
