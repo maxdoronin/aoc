@@ -20,7 +20,7 @@ def samples_str_to_int(samples_str):
         samples_int.append(int(sample_str.strip(), 2))
     return (samples_int)
 
-# returns true if bit number <bit_no> in the <sample_int> is set to <bc>
+# returns true if  bit number <bit_no> in the <sample_int> is set to <bc>
 # most significant bit number is number 0
 def check_bc(sample_int, sample_length, bit_no, bc):
     # create bit mask with bit number bit_no set to 1 
@@ -34,7 +34,7 @@ def check_bc(sample_int, sample_length, bit_no, bc):
 def filter_on_bc(samples_int, sample_length, bit_no, bc):
     return ([sample for sample in samples_int if check_bc(sample, sample_length, bit_no, bc)])
 
-# returns list of the most frequent bit values in each sample position for list of sample <samples_int>. If count(1) = count (0) then use 1   
+# returns list of the most frequent bit values in each sample position for the list of samples <samples_int>. If count(1) = count (0) then use 1   
 def get_1_frequency_list(samples_int, sample_length):
     sample_count = 0
     bit_count = [0]*sample_length
@@ -66,6 +66,8 @@ def day3_1(lines):
         gamma_str += str(gamma_bit)
         epsilon_bit = 1 - gamma_bit
         epsilon_str += str(epsilon_bit)
+    print (gamma_str)
+    print (epsilon_str)
     gamma_rate = int(gamma_str, 2)
     epsilon_rate = int(epsilon_str, 2)
     energy_consumption = gamma_rate*epsilon_rate
