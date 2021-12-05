@@ -29,12 +29,12 @@ def map_vents(vents, map, consider_diagnoals=False):
             continue
         h = h0
         v = v0
-        while abs(h1 - h) + abs(v1 - v) != 0:
+        while True:
             map[v][h] += 1
+            if abs(h1 - h) + abs(v1 - v) == 0:
+                break
             h += hstep
             v += vstep
-        # below line handles 'dots' and the last points
-        map[v][h] += 1
 
 def count_overlaps(map):
     return (sum([sum (x>1 for x in map[i]) for i in range(len(map))]))
@@ -56,7 +56,6 @@ vents = read_input('testinput.txt')
 map = initialize_map(vents)
 map_vents(vents, map, consider_diagnoals=True)
 print(count_overlaps(map))
-
 
 vents = read_input('input.txt')
 map = initialize_map(vents)
