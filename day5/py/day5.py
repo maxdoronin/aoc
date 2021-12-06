@@ -15,6 +15,10 @@ def map_vents(vents, map, consider_diagnoals=False):
     for vent in vents:
         hdelta = vent[1][0] - vent[0][0]
         vdelta = vent[1][1] - vent[0][1]
+        h0 = vent[0][0]
+        h1 = vent[1][0]
+        v0 = vent[0][1]
+        v1 = vent[1][1]
         hstep = 0
         if hdelta != 0:
             hstep = hdelta // abs(hdelta)
@@ -23,10 +27,6 @@ def map_vents(vents, map, consider_diagnoals=False):
             vstep = vdelta // abs(vdelta)
         if not consider_diagnoals and (hdelta != 0 and vdelta != 0):
             continue
-        h0 = vent[0][0]
-        h1 = vent[1][0]
-        v0 = vent[0][1]
-        v1 = vent[1][1]
         h = h0
         v = v0
         while True:
